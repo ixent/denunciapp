@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">DenunciApp</string>
+    <string name="button_new">Nueva Denuncia</string>
+    <string name="button_report">Ver Informe</string>
+    <string name="button_next">Siguiente</string>
+    <string name="title_activity_find_location">Map</string>
+</resources>

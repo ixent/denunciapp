@@ -1,0 +1,26 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".activity.FindLocationActivity">
+
+    <item android:id="@+id/action_normal_map"
+        android:orderInCategory="1"
+        android:title="Mapa normal"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_terrain_map"
+        android:orderInCategory="2"
+        android:title="Mapa del terreno"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_satellite_map"
+        android:orderInCategory="3"
+        android:title="Mapa satelital"
+        app:showAsAction="never"/>
+
+    <item android:id="@+id/action_hybrid_map"
+        android:orderInCategory="4"
+        android:title="Mapa hibrido"
+        app:showAsAction="never"/>
+
+</menu>
