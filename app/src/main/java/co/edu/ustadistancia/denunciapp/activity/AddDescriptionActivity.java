@@ -24,7 +24,7 @@ public class AddDescriptionActivity extends AppCompatActivity {
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        myToolbar.setSubtitle("Agregar Descripción del Delito");
+        myToolbar.setSubtitle("Agregar Descripción del Delito"); /**/
 
         if (DenunciaState.getDescription()!=null) {
             EditText descriptionEditor = (EditText)findViewById(R.id.editText);
