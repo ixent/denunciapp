@@ -161,6 +161,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
                         newDoc.put("ciudadano_id", 1);
                         newDoc.put("autoridad_id", 1);
                         newDoc.put("delito_id", DenunciaState.getDelitoID());
+                        newDoc.put("fecha", DenunciaState.getFecha().toString());
+                        newDoc.put("hora", DenunciaState.getHora().toString());
                         newDoc.put("latitude",DenunciaState.getUbicacion().latitude);
                         newDoc.put("longitude",DenunciaState.getUbicacion().longitude);
                         newDoc.put("photo",photoURIStr);

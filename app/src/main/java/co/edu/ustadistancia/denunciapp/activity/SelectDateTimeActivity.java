@@ -59,6 +59,8 @@ public class SelectDateTimeActivity extends AppCompatActivity {
         TextView dateView = (TextView)findViewById(R.id.editText3);
         updateDate(date, dateView);
         updateTime(time, timeView);
+        DenunciaState.setFecha(date);
+        DenunciaState.setHora(time);
     }
 
     public static void updateDate(Date date, TextView dateView) {
