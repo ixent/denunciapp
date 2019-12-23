@@ -14,6 +14,7 @@ import android.widget.EditText;
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.mongodb.client.gridfs.model.GridFSFile;
 import com.mongodb.lang.NonNull;
 import com.mongodb.stitch.android.core.Stitch;
 import com.mongodb.stitch.android.core.StitchAppClient;
@@ -166,6 +167,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
                         newDoc.put("latitude",DenunciaState.getUbicacion().latitude);
                         newDoc.put("longitude",DenunciaState.getUbicacion().longitude);
                         newDoc.put("photo",photoURIStr);
+
+
                         newDoc.put("video",videoURIStr);
                         newDoc.put("description",DenunciaState.getDescription());
 
