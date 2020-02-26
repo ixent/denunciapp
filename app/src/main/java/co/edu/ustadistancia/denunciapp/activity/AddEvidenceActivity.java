@@ -94,7 +94,7 @@ public class AddEvidenceActivity extends AppCompatActivity {
     */
 
     /* Takes photo and writes to file */
-    protected void dispatchTakePictureIntent(View view) {
+    public void dispatchTakePictureIntent(View view) {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
         // Ensure that there's a camera activity to handle the intent
         if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
@@ -210,7 +210,7 @@ public class AddEvidenceActivity extends AppCompatActivity {
         mImageView.setImageBitmap(bitmap);
     }
 
-    protected void dispatchTakeVideoIntent(View view) {
+    public void dispatchTakeVideoIntent(View view) {
         Intent takeVideoIntent = new Intent(MediaStore.ACTION_VIDEO_CAPTURE);
         if (takeVideoIntent.resolveActivity(getPackageManager()) != null) {
             startActivityForResult(takeVideoIntent, REQUEST_VIDEO_CAPTURE);
