@@ -61,6 +61,7 @@
         <activity android:name=".activity.TestActivity" />
         <activity android:name=".activity.ViewReportActivity"></activity>
         <activity android:name=".activity.AuthorityViewReportActivity"></activity>
+        <activity android:name=".activity.AuthorityReplyActivity"></activity>
     </application>
 
 </manifest>

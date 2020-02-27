@@ -33,7 +33,7 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
         //Add the toolbar
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        myToolbar.setSubtitle("Ver Informe");
+        myToolbar.setSubtitle("Responder Denuncia - Autoridad Ambiental");
 
         //TODO: This is reading from the local database here, should read from the MongoDB database
         AppDatabase db = AppDatabase.getAppDatabase(this);
@@ -61,27 +61,8 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
-                                AlertDialog.Builder builder;
-                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-                                    builder = new AlertDialog.Builder(AuthorityViewReportActivity.this, android.R.style.Theme_Material_Dialog);
-                                } else {
-                                    builder = new AlertDialog.Builder(AuthorityViewReportActivity.this);
-                                }
-                                final View v = view;
-                                builder.setTitle("Denuncia")
-                                        .setMessage("Doh")
-                                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
-                                            public void onClick(DialogInterface dialog, int which) {
-                                                Intent intent = new Intent(AuthorityViewReportActivity.this, MainActivity.class);
-                                                startActivity(intent);
-                                            }
-                                        })
-                                        .setIcon(android.R.drawable.ic_dialog_info)
-                                        .show();
-/*                                denunciaList.remove(item);
-                                adapter.notifyDataSetChanged();
-                                view.setAlpha(1);*/
-                            }
+                                Intent intent = new Intent(AuthorityViewReportActivity.this, AuthorityReplyActivity.class);
+                                startActivity(intent);                            }
                         });
             }
 
