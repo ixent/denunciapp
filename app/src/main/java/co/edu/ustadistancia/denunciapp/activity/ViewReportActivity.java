@@ -1,6 +1,10 @@
 package co.edu.ustadistancia.denunciapp.activity;
 
 import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.os.Build;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
@@ -32,6 +36,7 @@ public class ViewReportActivity extends AppCompatActivity {
         setSupportActionBar(myToolbar);
         myToolbar.setSubtitle("Ver Informe");
 
+        //TODO: This is reading from the local database here, should read from the MongoDB database
         AppDatabase db = AppDatabase.getAppDatabase(this);
         final List<Denuncia> denunciaList = db.denunciaDao().getAll();
 
@@ -48,23 +53,40 @@ public class ViewReportActivity extends AppCompatActivity {
                 R.layout.rowlayout, R.id.label, values);
         listview.setAdapter(adapter);
 
-/*        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        listview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, final View view,
-                                    int position, long id) {
+                                    final int position, long id) {
                 final String item = (String) parent.getItemAtPosition(position);
-                view.animate().setDuration(2000).alpha(0)
+                view.animate().setDuration(200).alpha(0)
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
-                                denunciaList.remove(item);
+                                AlertDialog.Builder builder;
+                                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                                    builder = new AlertDialog.Builder(ViewReportActivity.this, android.R.style.Theme_Material_Dialog);
+                                } else {
+                                    builder = new AlertDialog.Builder(ViewReportActivity.this);
+                                }
+                                final View v = view;
+                                builder.setTitle("Denuncia")
+                                        .setMessage("Esta denuncia no ha sido respondida aún."+denunciaList.get(position).getLatitud())
+                                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                                            public void onClick(DialogInterface dialog, int which) {
+                                                Intent intent = new Intent(ViewReportActivity.this, MainActivity.class);
+                                                startActivity(intent);
+                                            }
+                                        })
+                                        .setIcon(android.R.drawable.ic_dialog_info)
+                                        .show();
+/*                                denunciaList.remove(item);
                                 adapter.notifyDataSetChanged();
-                                view.setAlpha(1);
+                                view.setAlpha(1);*/
                             }
                         });
             }
 
-        });*/
+        });
     }
 
     private class StableArrayAdapter extends ArrayAdapter<Denuncia> {
