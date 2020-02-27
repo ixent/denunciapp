@@ -22,7 +22,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".activity.MainActivity">
+        <activity android:name=".activity.Login1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -52,6 +52,8 @@
                 android:resource="@xml/file_paths" />
         </provider>
 
+        <activity android:name=".activity.Login2Activity" />
+        <activity android:name=".activity.MainActivity" />
         <activity android:name=".activity.AddEvidenceActivity" />
         <activity android:name=".activity.AddDescriptionActivity" />
         <activity android:name=".activity.FindLocationActivity" />

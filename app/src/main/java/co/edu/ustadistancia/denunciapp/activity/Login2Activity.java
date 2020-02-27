@@ -1,8 +1,8 @@
 package co.edu.ustadistancia.denunciapp.activity;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 
@@ -11,28 +11,29 @@ import co.edu.ustadistancia.denunciapp.db.AppDatabase;
 import co.edu.ustadistancia.denunciapp.db.DatabaseInitializer;
 import co.edu.ustadistancia.denunciapp.db.DenunciaState;
 
-public class MainActivity extends AppCompatActivity {
+public class Login2Activity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_login2);
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.my_toolbar);
         setSupportActionBar(myToolbar);
-        myToolbar.setSubtitle("Menú Principal Ciudadano");
+        myToolbar.setSubtitle("Iniciar Sesión");
 
     }
 
-    /* Este metodo es llamado cuando el usario tap el boton para crear nueva denuncia */
-    public void createComplaint(View view) {
-        Intent intent = new Intent(this, SelectCategoryActivity.class);
+    /* Entrar en modo ciudadano o modo autoridad ambiental */
+    public void login3(View view) {
+        Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
     }
 
-    /* Este metodo es llamado cuando el usario tap el boton para ver informe */
-    public void viewReport(View view) {
-        Intent intent = new Intent(this, ViewReportActivity.class);
+    /* Regresar a la pantalla inicial */
+    public void login1(View view) {
+        Intent intent = new Intent(this, Login1Activity.class);
         startActivity(intent);
     }
+
 }
