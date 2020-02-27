@@ -15,6 +15,7 @@ import android.net.Uri;
  */
 
 public class DenunciaState {
+    private static String user;
     private static int denunciaID;
     private static int ciudadanoID;
     private static int autoridadID;
@@ -26,10 +27,16 @@ public class DenunciaState {
     private static Uri videoURI;
     private static String description;
 
-    public static void initializeDenunciaState(AppCompatActivity activity) {
+    public static void initializeDenunciaState(AppCompatActivity activity, String user) {
         AppDatabase db = AppDatabase.getAppDatabase(activity);
 
-        denunciaID = db.denunciaDao().getNextDenunciaID();
+        DenunciaState.user = user;
+        /*TODO: unhardcode this, should check in database what kind of user this is! */
+        if (!user.equals("cortolima")) {
+            denunciaID = db.denunciaDao().getNextDenunciaID();
+        } else {
+            denunciaID = -1;
+        }
         ciudadanoID = 1;
         autoridadID = 2;
         delitoID = -1;

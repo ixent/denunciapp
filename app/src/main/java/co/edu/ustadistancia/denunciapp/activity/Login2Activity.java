@@ -26,8 +26,13 @@ public class Login2Activity extends AppCompatActivity {
 
     /* Entrar en modo ciudadano o modo autoridad ambiental */
     public void login3(View view) {
-        Intent intent = new Intent(this, MainActivity.class);
-        startActivity(intent);
+        if (DenunciaState.getDenunciaID()!=-1) {
+            Intent intent = new Intent(this, MainActivity.class);
+            startActivity(intent);
+        } else {
+            Intent intent = new Intent(this, AuthorityViewReportActivity.class);
+            startActivity(intent);
+        }
     }
 
     /* Regresar a la pantalla inicial */
