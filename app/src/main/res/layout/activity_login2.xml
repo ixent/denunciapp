@@ -16,7 +16,7 @@
         app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
 
     <EditText
-        android:id="@+id/editText"
+        android:id="@+id/editPWText"
         android:layout_width="330dp"
         android:layout_height="50dp"
         android:layout_marginLeft="16dp"

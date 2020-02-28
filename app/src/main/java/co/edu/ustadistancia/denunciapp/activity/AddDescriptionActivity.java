@@ -159,8 +159,8 @@ public class AddDescriptionActivity extends AppCompatActivity {
                                 task.getResult().getId()
                         );
                         newDoc.put("denuncia_id", DenunciaState.getDenunciaID());
-                        newDoc.put("ciudadano_id", 1);
-                        newDoc.put("autoridad_id", 1);
+                        newDoc.put("ciudadano_id", DenunciaState.getUsuario());
+                        newDoc.put("autoridad_id", "autoridad1");
                         newDoc.put("delito_id", DenunciaState.getDelitoID());
                         newDoc.put("fecha", DenunciaState.getFecha().toString());
                         newDoc.put("hora", DenunciaState.getHora().toString());
