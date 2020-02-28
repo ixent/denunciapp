@@ -127,7 +127,7 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
                 List<Document> docs = new ArrayList<>();
                 return coll
                         .find(new Document("owner_id", client.getAuth().getUser().getId()))
-                        .filter(new Document("dummy",0))
+                        .filter(new Document("dummy",0).append("respuesta", null))
                         //.filter(new Document("autoridad_id", DenunciaState.getUsuario()))
                         .limit(100)
                         .into(docs);
@@ -139,7 +139,7 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
                     Log.e("STITCH", "Found docs: " + task.getResult().toString());
                     ArrayList<String> values = new ArrayList<String>();
                     for (Document d : task.getResult()) {
-                        String s = "Denuncia: "+d.getInteger("denuncia_id")+"\n"+
+                        String s = "Denuncia: "+d.getObjectId("_id").toString()+"\n"+
                                 "Ciudadano: "+d.getString("ciudadano_id")+"\n"+
                                 "Fecha: "+d.getString("fecha")+"\t"+
                                 "Hora: "+d.getString("hora")+"\n"+

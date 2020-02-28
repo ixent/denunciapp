@@ -167,7 +167,7 @@ public class ViewReportActivity extends AppCompatActivity {
                     Log.e("STITCH", "Found docs: " + task.getResult().toString());
                     ArrayList<String> values = new ArrayList<String>();
                     for (Document d : task.getResult()) {
-                        String s = "Denuncia: "+d.getInteger("denuncia_id")+"\n"+
+                        String s = "Denuncia: "+d.getObjectId("_id").toString()+"\n"+
                                 "Tipo delito: "+d.getInteger("delito_id")+"\n"+
                                 "Descripcion: "+d.getString("description");
                         values.add(s);
