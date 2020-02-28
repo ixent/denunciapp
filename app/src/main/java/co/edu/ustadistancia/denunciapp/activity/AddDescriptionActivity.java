@@ -127,7 +127,7 @@ public class AddDescriptionActivity extends AppCompatActivity {
     private void updateMongoDBDatabase() {
         /* iniciar conexión con MongoDB en la nube */
         final StitchAppClient client =
-                Stitch.initializeDefaultAppClient("denunciapp-ogvol");
+                Stitch.getDefaultAppClient();
 
         final RemoteMongoClient mongoClient =
                 client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");

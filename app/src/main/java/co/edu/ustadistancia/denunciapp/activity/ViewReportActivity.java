@@ -114,7 +114,7 @@ public class ViewReportActivity extends AppCompatActivity {
     private void getDenunciasFromMongoDBDatabase() {
         /* iniciar conexión con MongoDB en la nube */
         final StitchAppClient client =
-                Stitch.initializeDefaultAppClient("denunciapp-ogvol");
+                Stitch.getDefaultAppClient();
 
         final RemoteMongoClient mongoClient =
                 client.getServiceClient(RemoteMongoClient.factory, "mongodb-atlas");

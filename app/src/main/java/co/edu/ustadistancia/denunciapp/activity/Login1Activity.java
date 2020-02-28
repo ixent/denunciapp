@@ -7,6 +7,8 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 
+import com.mongodb.stitch.android.core.Stitch;
+
 import co.edu.ustadistancia.denunciapp.R;
 import co.edu.ustadistancia.denunciapp.db.AppDatabase;
 import co.edu.ustadistancia.denunciapp.db.DatabaseInitializer;
@@ -24,6 +26,8 @@ public class Login1Activity extends AppCompatActivity {
         myToolbar.setSubtitle("Iniciar Sesión");
 
         DatabaseInitializer.populateAsync(AppDatabase.getAppDatabase(this), this);
+
+        Stitch.initializeDefaultAppClient("denunciapp-ogvol");
 
 /*        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
                 AppDatabase.class, "database-name").build();*/
