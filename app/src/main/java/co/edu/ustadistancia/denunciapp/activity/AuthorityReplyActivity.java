@@ -9,9 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.EditText;
-import android.widget.ListView;
 
 import com.google.android.gms.tasks.Continuation;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -27,14 +25,11 @@ import com.mongodb.stitch.core.services.mongodb.remote.RemoteInsertOneResult;
 import com.mongodb.stitch.core.services.mongodb.remote.RemoteUpdateResult;
 
 import org.bson.Document;
-import org.bson.conversions.Bson;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import co.edu.ustadistancia.denunciapp.R;
-import co.edu.ustadistancia.denunciapp.db.AppDatabase;
-import co.edu.ustadistancia.denunciapp.db.DatabaseInitializer;
 import co.edu.ustadistancia.denunciapp.db.DenunciaState;
 
 public class AuthorityReplyActivity extends AppCompatActivity {
@@ -104,10 +99,10 @@ public class AuthorityReplyActivity extends AppCompatActivity {
 
                         //Taken from https://docs.mongodb.com/stitch/mongodb/actions/collection.updateOne/
                         Document filterDoc = new Document().append("owner_id", task.getResult().getId()).
-                                append("_id", DenunciaState.getCurrentResponseDocID());
+                                append("_id", DenunciaState.getCurrentResponseDoc().getObjectId("_id"));
 
                         EditText descriptionEditor = (EditText)findViewById(R.id.editText);
-                        Document updateDoc = new Document().append(
+                        Document updateDoc = DenunciaState.getCurrentResponseDoc().append(
                                 "respuesta", descriptionEditor.getText().toString()
                         );
 

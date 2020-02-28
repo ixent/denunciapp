@@ -24,7 +24,6 @@ import com.mongodb.stitch.core.auth.providers.anonymous.AnonymousCredential;
 import com.mongodb.stitch.core.services.mongodb.remote.RemoteInsertOneResult;
 
 import org.bson.Document;
-import org.bson.types.ObjectId;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -36,7 +35,7 @@ import co.edu.ustadistancia.denunciapp.db.DenunciaState;
 
 public class AuthorityViewReportActivity extends AppCompatActivity {
 
-    final ArrayList<ObjectId> denunciaDocIDs = new ArrayList<ObjectId>();
+    final ArrayList<Document> denunciaDocs = new ArrayList<>();
 
     //Inspired by tutorial: http://www.vogella.com/tutorials/AndroidListView/article.html
 
@@ -75,7 +74,7 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
                         .withEndAction(new Runnable() {
                             @Override
                             public void run() {
-                                DenunciaState.setCurrentResponseDocID(denunciaDocIDs.get(position));
+                                DenunciaState.setCurrentResponseDoc(denunciaDocs.get(position));
                                 Intent intent = new Intent(AuthorityViewReportActivity.this, AuthorityReplyActivity.class);
                                 startActivity(intent);                            }
                         });
@@ -149,7 +148,7 @@ public class AuthorityViewReportActivity extends AppCompatActivity {
                                 "Tipo delito: "+d.getInteger("delito_id")+"\n"+
                                 "Descripcion: "+d.getString("description");
                         values.add(s);
-                        AuthorityViewReportActivity.this.denunciaDocIDs.add(d.getObjectId("_id"));
+                        AuthorityViewReportActivity.this.denunciaDocs.add(d);
                     }
 
                     final ArrayAdapter<String> adapter = new ArrayAdapter<String>(AuthorityViewReportActivity.this,
