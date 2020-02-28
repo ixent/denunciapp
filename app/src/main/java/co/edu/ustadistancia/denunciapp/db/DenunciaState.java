@@ -4,6 +4,8 @@ package co.edu.ustadistancia.denunciapp.db;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 
+import org.bson.types.ObjectId;
+
 import java.sql.Time;
 import java.sql.Date;
 
@@ -26,6 +28,8 @@ public class DenunciaState {
     private static Uri photoURI;
     private static Uri videoURI;
     private static String description;
+
+    private static ObjectId currentResponseDocID;
 
     public static void initializeDenunciaState(AppCompatActivity activity, String user) {
         AppDatabase db = AppDatabase.getAppDatabase(activity);
@@ -134,5 +138,13 @@ public class DenunciaState {
 
     public static void setDescription(String description) {
         DenunciaState.description = description;
+    }
+
+    public static ObjectId getCurrentResponseDocID() {
+        return currentResponseDocID;
+    }
+
+    public static void setCurrentResponseDocID(ObjectId currentResponseDocID) {
+        DenunciaState.currentResponseDocID = currentResponseDocID;
     }
 }
