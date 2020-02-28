@@ -40,6 +40,8 @@ import co.edu.ustadistancia.denunciapp.db.DenunciaState;
 
 public class ViewReportActivity extends AppCompatActivity {
 
+    final ArrayList<String> responses = new ArrayList<String>();
+
     //Inspired by tutorial: http://www.vogella.com/tutorials/AndroidListView/article.html
 
     @Override
@@ -85,8 +87,12 @@ public class ViewReportActivity extends AppCompatActivity {
                                     builder = new AlertDialog.Builder(ViewReportActivity.this);
                                 }
                                 final View v = view;
+                                String message = responses.get(position);
+                                if (message==null) {
+                                    message = "Todavía no se ha recibido respuesta";
+                                }
                                 builder.setTitle("Denuncia")
-                                        .setMessage("Esta denuncia no ha sido respondida aún.")
+                                        .setMessage(message)
                                         .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
                                             public void onClick(DialogInterface dialog, int which) {
                                                 Intent intent = new Intent(ViewReportActivity.this, MainActivity.class);
@@ -165,6 +171,7 @@ public class ViewReportActivity extends AppCompatActivity {
                                 "Tipo delito: "+d.getInteger("delito_id")+"\n"+
                                 "Descripcion: "+d.getString("description");
                         values.add(s);
+                        ViewReportActivity.this.responses.add(d.getString("respuesta"));
                     }
 
                     final ArrayAdapter<String> adapter = new ArrayAdapter<String>(ViewReportActivity.this,
