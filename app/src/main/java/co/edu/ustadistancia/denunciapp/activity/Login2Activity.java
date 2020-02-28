@@ -32,7 +32,7 @@ public class Login2Activity extends AppCompatActivity {
     public void login3(View view) {
         EditText editPWText = (EditText)findViewById(R.id.editPWText);
         //TODO: check credentials with MongoDB database
-        /*if (!editPWText.getText().toString().equals("12345") ||
+        if (!editPWText.getText().toString().equals("12345") ||
                 (!DenunciaState.getUsuario().equals("usuario1") &&
                         !DenunciaState.getUsuario().equals("usuario2") &&
                         !DenunciaState.getUsuario().equals("usuario3") &&
@@ -55,7 +55,7 @@ public class Login2Activity extends AppCompatActivity {
                     .setIcon(android.R.drawable.ic_dialog_info)
                     .show();
 
-        } else */ if (DenunciaState.getDenunciaID()!=-1) {
+        } else if (DenunciaState.getDenunciaID()!=-1) {
             Intent intent = new Intent(this, MainActivity.class);
             startActivity(intent);
         } else {
