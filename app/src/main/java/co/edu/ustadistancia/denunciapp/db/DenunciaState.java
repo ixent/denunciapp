@@ -50,6 +50,9 @@ public class DenunciaState {
     }
 
     public static String getUsuario() {
+        if (usuario.equals("")) {
+            return "usuario1";
+        }
         return usuario;
     }
 
